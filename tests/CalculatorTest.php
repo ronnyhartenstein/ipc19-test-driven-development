@@ -8,13 +8,21 @@ use PHPUnit\Framework\TestCase;
 
 class CalculatorTest extends TestCase
 {
-    public function test_ergebnis_10_durch_2_ist_5(): void
-    {
-        $this->assertSame(5, 10 / 2);
+    public function provider() {
+        return [
+            [5, 10, 2],
+            [3, 12, 4],
+//            [3.33, 9, 3]
+        ];
     }
 
-    public function test_10_durch_3_ist_3_und_nochwas(): void
+    /**
+     * @dataProvider provider
+     * @testdox $divident ÷~ $divisor = $ergebnis
+     */
+    public function test_ergebnis_a_durch_b_ist_c($ergebnis, $divident, $divisor): void
     {
-        $this->assertSame(3.3333333333333335, 10 / 3);
+        $this->assertSame($ergebnis, $divident / $divisor);
     }
+
 }

@@ -7,7 +7,9 @@ spl_autoload_register(
         static $classes = null;
         if ($classes === null) {
             $classes = array(
-                'tddworkshop\\calculator' => '/Calculator.php'
+                'tddworkshop\\calculator' => '/Calculator.php',
+                'tddworkshop\\tictactoe\\field' => '/tictactoe/Field.php',
+                'tddworkshop\\tictactoe\\fieldisfilledexception' => '/tictactoe/FieldIsFilledException.php'
             );
         }
         $cn = strtolower($class);
