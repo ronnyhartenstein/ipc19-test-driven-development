@@ -4,11 +4,11 @@ namespace TDDWorkshop\TicTacToe;
 
 class Field
 {
-    private const EMPTY = 1;
-    private const PLAYER_X = 2;
-    private const PLAYER_O = 3;
+    private const EMPTY = ' ';
+    public const PLAYER_X = 'X';
+    public const PLAYER_O = 'O';
 
-    /** @var int */
+    /** @var string */
     private $status = self::EMPTY;
 
     public function isEmpty(): bool
@@ -44,5 +44,9 @@ class Field
     public function isPlayerO():bool
     {
         return $this->status === self::PLAYER_O;
+    }
+    public function getPlayer(): string
+    {
+        return $this->status;
     }
 }

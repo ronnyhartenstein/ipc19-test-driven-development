@@ -14,6 +14,9 @@ class Board
     /** @var ?Field  */
     private $played_field = null;
 
+    /** @var ?string  */
+    private $winner = null;
+
     public function __construct()
     {
         for ($col = 1; $col <= self::COLS; $col++) {
@@ -39,6 +42,7 @@ class Board
         }
         $field->setPlayerX();
         $this->played_field = $field;
+        $this->checkIfWon();
     }
 
     public function placePlayerO(int $row, int $col): void
@@ -49,6 +53,7 @@ class Board
         }
         $field->setPlayerO();
         $this->played_field = $field;
+        $this->checkIfWon();
     }
 
     public function get(int $row, int $col): Field
@@ -56,5 +61,85 @@ class Board
         /** @var Field $field */
         $field = $this->fields[$row][$col];
         return $field;
+    }
+
+    public function gameHasWon(): bool
+    {
+        return $this->winner !== null;
+    }
+
+    public function winner(): ?string
+    {
+        return $this->winner;
+    }
+
+    private function checkIfWon(): void
+    {
+        if (!$this->gameHasWon()) {
+            $this->checkIfWonByRow();
+        }
+        if (!$this->gameHasWon()) {
+            $this->checkIfWonByCol();
+        }
+        if (!$this->gameHasWon()) {
+            $this->checkDiagonals();
+        }
+    }
+
+    private function checkIfWonByRow():  void
+    {
+        for ($row = 1; $row <= self::ROWS; $row++) {
+            /** @var ?string $player */
+            $player = null;
+            for ($col = 1; $col <= self::COLS; $col++) {
+                /** @var Field $field */
+                $field = $this->fields[$col][$row];
+                if ($player === null) {
+                    $player = $field->getPlayer();
+                    continue;
+                }
+                if ($field->getPlayer() !== $player) {
+                    break;
+                }
+                if ($col === self::COLS) {
+                    $this->winner = $player;
+                    break;
+                }
+            }
+            if ($this->winner) {
+                break;
+            }
+        }
+    }
+
+    private function checkIfWonByCol():void
+    {
+        for ($col = 1; $col <= self::COLS; $col++) {
+            /** @var ?string $player */
+            $player = null;
+            for ($row = 1; $row <= self::ROWS; $row++) {
+                /** @var Field $field */
+                $field = $this->fields[$row][$col];
+                if ($player === null) {
+                    $player = $field->getPlayer();
+                    continue;
+                }
+                if ($field->getPlayer() !== $player) {
+                    break;
+                }
+                if ($row === self::COLS) {
+                    $this->winner = $player;
+                    break;
+                }
+            }
+            if ($this->winner) {
+                break;
+            }
+        }
+    }
+
+    private function checkDiagonals(): void
+    {
+
     }
 }
