@@ -4,7 +4,7 @@ namespace TDDWorkshop\TicTacToe;
 
 class Field
 {
-    private const EMPTY = ' ';
+    public const EMPTY = ' ';
     public const PLAYER_X = 'X';
     public const PLAYER_O = 'O';
 

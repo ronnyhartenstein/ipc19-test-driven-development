@@ -93,7 +93,10 @@ class Board
             $player = null;
             for ($col = 1; $col <= self::COLS; $col++) {
                 /** @var Field $field */
-                $field = $this->fields[$col][$row];
+                $field = $this->fields[$row][$col];
+                if ($field->getPlayer() === Field::EMPTY) {
+                    break;
+                }
                 if ($player === null) {
                     $player = $field->getPlayer();
                     continue;
@@ -120,6 +123,9 @@ class Board
             for ($row = 1; $row <= self::ROWS; $row++) {
                 /** @var Field $field */
                 $field = $this->fields[$row][$col];
+                if ($field->getPlayer() === Field::EMPTY) {
+                    break;
+                }
                 if ($player === null) {
                     $player = $field->getPlayer();
                     continue;
