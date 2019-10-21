@@ -146,6 +146,56 @@ class Board
 
     private function checkDiagonals(): void
     {
+        $this->checkDiagonalsFromTopLeftToBottomRight();
+        $this->checkDiagonalsFromBottomLeftToTopRight();
+    }
 
+    private function checkDiagonalsFromTopLeftToBottomRight(): void
+    {
+        /** @var ?string $player */
+        $player = null;
+        for ($rowcol = 1; $rowcol <= self::COLS; $rowcol++) {
+            /** @var Field $field */
+            $field = $this->fields[$rowcol][$rowcol];
+            if ($field->getPlayer() === Field::EMPTY) {
+                break;
+            }
+            if ($player === null) {
+                $player = $field->getPlayer();
+                continue;
+            }
+            if ($field->getPlayer() !== $player) {
+                break;
+            }
+            if ($rowcol === self::COLS) {
+                $this->winner = $player;
+                break;
+            }
+        }
+    }
+
+    private function checkDiagonalsFromBottomLeftToTopRight(): void
+    {
+        /** @var ?string $player */
+        $player = null;
+        for ($row = 1; $row <= self::ROWS; $row++) {
+            $col = self::COLS + 1 - $row;
+            /** @var Field $field */
+            $field = $this->fields[$row][$col];
+            if ($field->getPlayer() === Field::EMPTY) {
+                break;
+            }
+            if ($player === null) {
+                $player = $field->getPlayer();
+                continue;
+            }
+            if ($field->getPlayer() !== $player) {
+                break;
+            }
+            if ($row === self::ROWS) {
+                $this->winner = $player;
+                break;
+            }
+        }
     }
 }

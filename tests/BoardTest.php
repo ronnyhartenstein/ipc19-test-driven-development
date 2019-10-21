@@ -90,4 +90,39 @@ class BoardTest extends TestCase
         $this->assertTrue($board->gameHasWon());
         $this->assertSame(Field::PLAYER_O, $board->winner());
     }
+
+
+    public function test_win_game_with_a_diagonal_top_left_to_bottom_right(): void
+    {
+        $board = new Board();
+        $this->assertFalse($board->gameHasWon());
+        $board->placePlayerO(1, 1);
+        $this->assertFalse($board->gameHasWon());
+        $board->placePlayerX(2, 1);
+        $this->assertFalse($board->gameHasWon());
+        $board->placePlayerO(2, 2);
+        $this->assertFalse($board->gameHasWon());
+        $board->placePlayerX(3, 1);
+        $this->assertFalse($board->gameHasWon());
+        $board->placePlayerO(3, 3);
+        $this->assertTrue($board->gameHasWon());
+        $this->assertSame(Field::PLAYER_O, $board->winner());
+    }
+
+    public function test_win_game_with_a_diagonal_bottom_left_to_top_right(): void
+    {
+        $board = new Board();
+        $this->assertFalse($board->gameHasWon());
+        $board->placePlayerO(3, 1);
+        $this->assertFalse($board->gameHasWon());
+        $board->placePlayerX(2, 1);
+        $this->assertFalse($board->gameHasWon());
+        $board->placePlayerO(2, 2);
+        $this->assertFalse($board->gameHasWon());
+        $board->placePlayerX(3, 2);
+        $this->assertFalse($board->gameHasWon());
+        $board->placePlayerO(1, 3);
+        $this->assertTrue($board->gameHasWon());
+        $this->assertSame(Field::PLAYER_O, $board->winner());
+    }
 }
