@@ -3,8 +3,6 @@
 
 namespace TDDWorkshop;
 
-
 class Calculator
 {
-
 }

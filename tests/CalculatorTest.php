@@ -3,12 +3,12 @@
 
 namespace TDDWorkshop\Test;
 
-
 use PHPUnit\Framework\TestCase;
 
 class CalculatorTest extends TestCase
 {
-    public function provider() {
+    public function provider()
+    {
         return [
             [5, 10, 2],
             [3, 12, 4],
@@ -24,5 +24,4 @@ class CalculatorTest extends TestCase
     {
         $this->assertSame($ergebnis, $divident / $divisor);
     }
-
 }

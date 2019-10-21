@@ -3,6 +3,6 @@
 
 namespace TDDWorkshop\TicTacToe;
 
-class FieldIsFilledException extends \Exception
+class PlayerPlacesBeforeException extends \Exception
 {
 }

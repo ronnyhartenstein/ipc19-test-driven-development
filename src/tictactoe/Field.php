@@ -2,15 +2,17 @@
 
 namespace TDDWorkshop\TicTacToe;
 
-
 class Field
 {
-    const EMPTY = 1;
-    const PLAYER_X = 2;
-    const PLAYER_Y = 3;
+    private const EMPTY = 1;
+    private const PLAYER_X = 2;
+    private const PLAYER_O = 3;
+
+    /** @var int */
     private $status = self::EMPTY;
 
-    public function isEmpty(): bool {
+    public function isEmpty(): bool
+    {
         return $this->status === self::EMPTY;
     }
 
@@ -28,19 +30,19 @@ class Field
     /**
      * @throws FieldIsFilledException
      */
-    public function setPlayerY():void
+    public function setPlayerO():void
     {
         if ($this->status !== self::EMPTY) {
             throw new FieldIsFilledException();
         }
-        $this->status = self::PLAYER_Y;
+        $this->status = self::PLAYER_O;
     }
     public function isPlayerX():bool
     {
         return $this->status === self::PLAYER_X;
     }
-    public function isPlayerY():bool
+    public function isPlayerO():bool
     {
-        return $this->status === self::PLAYER_Y;
+        return $this->status === self::PLAYER_O;
     }
 }
