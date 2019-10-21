@@ -5,6 +5,7 @@ namespace TDDWorkshop\Test;
 
 use PHPUnit\Framework\TestCase;
 use TDDWorkshop\TicTacToe\Board;
+use TDDWorkshop\TicTacToe\Field;
 use TDDWorkshop\TicTacToe\PlayerPlacesBeforeException;
 
 class BoardTest extends TestCase
@@ -40,7 +41,15 @@ class BoardTest extends TestCase
     }
 
 
-    public function test_players_places_again(): void
+    public function test_player_x_places_again(): void
+    {
+        $board = new Board();
+        $board->placePlayerX(1, 1);
+        $this->expectException(PlayerPlacesBeforeException::class);
+        $board->placePlayerX(1, 2);
+    }
+
+    public function test_player_o_places_again(): void
     {
         $board = new Board();
         $board->placePlayerO(1, 1);
