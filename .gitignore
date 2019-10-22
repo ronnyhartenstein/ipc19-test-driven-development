@@ -2,3 +2,4 @@ tools
 *.cache
 
 /vendor/
+report.xml

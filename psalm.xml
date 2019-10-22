@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<!-- https://github.com/thePHPcc/richtig-guten-code-schreiben/blob/master/psalm.xml -->
 <psalm
         totallyTyped="true"
         resolveFromConfigFile="true"

@@ -1,3 +1,5 @@
+# https://localheinz.com/blog/2018/01/24/makefile-for-lazy-developers/
+
 it: check style test
 
 test:

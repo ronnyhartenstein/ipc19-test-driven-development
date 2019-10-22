@@ -18,7 +18,7 @@ class CalculatorTest extends TestCase
 
     /**
      * @dataProvider provider
-     * @testdox $divident ÷~ $divisor = $ergebnis
+     * @testdox ergebnis a durch b ist c $divident ÷ $divisor = $ergebnis
      */
     public function test_ergebnis_a_durch_b_ist_c($ergebnis, $divident, $divisor): void
     {
