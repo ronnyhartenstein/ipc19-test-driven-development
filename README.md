@@ -71,7 +71,8 @@ PHPUnit 8.5 (Dezember) kommt evtl. mit Folding für Datasets/Dataprovider-getrie
 Obelus ÷ (Division-Zeichen) https://en.wikipedia.org/wiki/Obelus
 
 
-## Tic-Tac-Toe -- "the only winning move is not to play"
+## Tic-Tac-Toe
+"the only winning move is not to play"
 
 **Business-Analyse Methode one-to-four**
 erst mach jeder für sich Gedanken
@@ -113,10 +114,12 @@ nur eine placeX und eine isFinished
 
 
 --
+
 https://laravel-news.com/tips-to-speed-up-phpunit-tests
 
 Nur fehlgeschlagene Tests ausführen
 phpunit --order-by=defects --stop-on-defect
+
 --
 
 
