@@ -5,4 +5,5 @@
   <phar name="phpab" version="^1.25.6" installed="1.25.6" location="./tools/phpab" copy="true"/>
   <phar name="php-cs-fixer" version="^2.12.0" installed="2.15.3" location="./tools/php-cs-fixer" copy="true"/>
   <phar name="psalm" version="^3.0.0" installed="3.6.2" location="./tools/psalm" copy="true"/>
+  <phar name="deptrac" version="^0.6.0" installed="0.6.0" location="./tools/deptrac" copy="true"/>
 </phive>

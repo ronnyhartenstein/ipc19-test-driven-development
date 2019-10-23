@@ -1,5 +1,5 @@
 tools
 *.cache
-
 /vendor/
 report.xml
+.idea
