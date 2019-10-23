@@ -9,13 +9,11 @@ class Board
     private const COLS = 3;
 
     /** @var Field[][] */
-    private $fields = [];
+    private array $fields = [];
 
-    /** @var ?Field  */
-    private $played_field = null;
+    private ?Field $played_field = null;
 
-    /** @var ?string  */
-    private $winner = null;
+    private ?string $winner = null;
 
     public function __construct()
     {

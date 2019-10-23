@@ -8,8 +8,7 @@ class Field
     public const PLAYER_X = 'X';
     public const PLAYER_O = 'O';
 
-    /** @var string */
-    private $status = self::EMPTY;
+    private string $status = self::EMPTY;
 
     public function isEmpty(): bool
     {
